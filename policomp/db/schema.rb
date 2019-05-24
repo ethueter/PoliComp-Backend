@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2019_05_24_104732) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -30,6 +31,7 @@ ActiveRecord::Schema.define(version: 2019_05_24_104732) do
     t.string "api_source_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "source_id"
   end
 
   create_table "users_articles", force: :cascade do |t|
