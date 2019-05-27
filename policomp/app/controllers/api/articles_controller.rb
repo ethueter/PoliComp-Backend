@@ -1,4 +1,5 @@
 class Api::ArticlesController < ApplicationController
+    before_action :authorize!, only: [:create]
 
     def index
         @articles = Article.all 
