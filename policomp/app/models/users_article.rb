@@ -1,4 +1,4 @@
-class UserArticle < ApplicationRecord
+class UsersArticle < ApplicationRecord
   belongs_to :user
   belongs_to :article
 end
