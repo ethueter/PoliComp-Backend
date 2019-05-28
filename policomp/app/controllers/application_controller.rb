@@ -3,7 +3,7 @@ class ApplicationController < ActionController::API
     def current_user
         token = request.headers['Access-Token']
         return nil unless token
-        payload = JST.decode(token, ENV['SECRETS']).first
+        payload = JWT.decode(token, ENV['AUTH_JWT']).first
         User.find_by(id: payload['user_id'])
     end
 

@@ -12,15 +12,16 @@ class Api::UsersController < ApplicationController
             render json: @user, status: :successful
         else
             render json: { errors: @user.errors.full_messages }
+        end
     end
 
     private
 
     def user_params
-        params.permit(:username, :email, :password_digest)
+        params.permit(:username, :email, :password)
     end
 
 end
 
 
-end
+
