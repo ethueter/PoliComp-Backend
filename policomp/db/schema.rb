@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_24_104732) do
-
+ActiveRecord::Schema.define(version: 2019_05_23_202246) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,7 +19,7 @@ ActiveRecord::Schema.define(version: 2019_05_24_104732) do
     t.string "title"
     t.string "author"
     t.text "content"
-    t.integer "source_id"
+    t.integer "source_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -28,18 +27,7 @@ ActiveRecord::Schema.define(version: 2019_05_24_104732) do
   create_table "sources", force: :cascade do |t|
     t.string "name"
     t.string "source_url"
-    t.string "api_source_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "source_id"
-  end
-
-  create_table "users_articles", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "article_id"
-    t.boolean "favorite"
-    t.integer "rating"
-    t.boolean "visible"
+    t.string "api_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -48,6 +36,16 @@ ActiveRecord::Schema.define(version: 2019_05_24_104732) do
     t.string "username"
     t.string "email"
     t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users_articles", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "article_id", null: false
+    t.boolean "favorite"
+    t.integer "rating"
+    t.boolean "visible"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
