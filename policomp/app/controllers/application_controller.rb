@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::API
 
     def current_user
-        token request.headers['Access-Token']
+        token = request.headers['Access-Token']
         return nil unless token
         payload = JST.decode(token, ENV['SECRETS']).first
         User.find_by(id: payload['user_id'])
