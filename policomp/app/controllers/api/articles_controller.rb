@@ -10,7 +10,7 @@ class Api::ArticlesController < ApplicationController
     def create 
         @article = Article.new(article_params)
         if @article.save
-            render json: @article, status: success 
+            render json: @article, status: :success 
         else 
             render json: ( @article.errors.full_messages)
         end
